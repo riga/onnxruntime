@@ -390,7 +390,7 @@ if(onnxruntime_BUILD_BENCHMARKS)
   endif()
 endif()
 
-if(NOT WIN32 AND NOT onnxruntime_PREFER_SYSTEM_LIB)
+if(NOT WIN32)
   add_subdirectory(${PROJECT_SOURCE_DIR}/external/nsync EXCLUDE_FROM_ALL)
 endif()
 # External dependencies
@@ -418,7 +418,7 @@ if(Protobuf_FOUND OR Protobuf_FOUND)
     if(NOT Protobuf_USE_STATIC_LIBS)
       #Indeed here should be a warning, not a fatal error. ONNX Runtime itself can work in such a
       #setting but it may cause compatibility issue when ONNX Runtime is integrated with the other ONNX ecosystem softwares.
-      message(FATAL_ERROR "Please enable Protobuf_USE_STATIC_LIBS")
+      message(WARNING "Please enable Protobuf_USE_STATIC_LIBS")
     endif()
   else()
     set(PROTOBUF_LIB protobuf::libprotobuf-lite)

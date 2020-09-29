@@ -5,6 +5,7 @@
 #include <vector>
 #include <memory>
 #include <stdlib.h>
+#include <cstdlib>
 
 namespace onnxruntime {
 namespace test {
